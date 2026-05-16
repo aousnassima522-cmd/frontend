@@ -77,7 +77,7 @@ const Sidebar = () => {
         ${collapsed ? 'justify-center' : ''}`}>
 
 <div className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center hover:bg-white/30 transition-all duration-300">
-  <AcademicCapIcon className="w-6 h-6 text-white" />
+  <img src={`${import.meta.env.BASE_URL}fav.png`} alt="icon" className="w-6 h-6" />
 </div>
         {!collapsed && (
           <div className="flex flex-col">
