@@ -77,11 +77,11 @@ const StatusView = ({ selectedChild, cases, notes, loading, onContactTeacher }) 
                 )}
             </div>
 
-            {/* ملاحظات المعلمين السلوكية */}
+            {/* ملاحظات الالأستاذين السلوكية */}
             <div className="pt-8 border-t border-gray-100">
                 <h3 className="text-2xl font-black text-gray-900 mb-8 flex items-center gap-3">
                     <ClipboardDocumentListIcon className="w-8 h-8 text-blue-600" />
-                    ملاحظات المعلمين اليومية
+                    ملاحظات الالأستاذين اليومية
                 </h3>
                 
                 {loading ? (
@@ -110,13 +110,13 @@ const StatusView = ({ selectedChild, cases, notes, loading, onContactTeacher }) 
 
                                 <div className="flex items-center justify-between pt-4 border-t border-gray-50">
                                     <div className="flex flex-col">
-                                        <span className="text-[9px] font-black text-gray-400 uppercase mb-1">المعلم</span>
+                                        <span className="text-[9px] font-black text-gray-400 uppercase mb-1">الالأستاذ</span>
                                         <span className="text-xs font-bold text-blue-600">{n.teacher_name}</span>
                                     </div>
                                     <button 
                                         onClick={() => onContactTeacher(n.teacher_id, n.teacher_name)}
                                         className="p-2 bg-blue-50 text-blue-600 rounded-xl hover:bg-blue-600 hover:text-white transition-all shadow-sm"
-                                        title="تواصل مع المعلم"
+                                        title="تواصل مع الالأستاذ"
                                     >
                                         <ChatBubbleLeftRightIcon className="w-5 h-5" />
                                     </button>
@@ -194,7 +194,7 @@ const ReportsView = ({ reports, loading, onMarkAsRead }) => {
                                 <div className="bg-amber-50 border border-amber-100 p-6 rounded-2xl text-sm text-amber-900 flex gap-4">
                                     <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-xl shrink-0 shadow-sm">💡</div>
                                     <div>
-                                        <strong className="block text-amber-900 mb-1 font-black">توصيات المعلم:</strong>
+                                        <strong className="block text-amber-900 mb-1 font-black">توصيات الالأستاذ:</strong>
                                         <p className="font-medium opacity-90">{r.recommendations}</p>
                                     </div>
                                 </div>
@@ -204,7 +204,7 @@ const ReportsView = ({ reports, loading, onMarkAsRead }) => {
                         <div className="text-center py-24 bg-gray-50 rounded-[40px] border-2 border-dashed border-gray-200">
                             <DocumentTextIcon className="w-20 h-20 mx-auto text-gray-200 mb-6" />
                             <h4 className="text-lg font-bold text-gray-800">لا توجد تقارير حالياً</h4>
-                            <p className="text-gray-400 text-sm mt-2">بمجرد إرسال المعلمين لتقارير جديدة حول ابنك، ستظهر هنا.</p>
+                            <p className="text-gray-400 text-sm mt-2">بمجرد إرسال الالأستاذين لتقارير جديدة حول ابنك، ستظهر هنا.</p>
                         </div>
                     )}
                 </div>
@@ -269,7 +269,7 @@ const ChatView = ({ admin, conversations, loadingConversations, selectedConversa
                         <div className="relative">
                             <input
                                 type="text"
-                                placeholder="ابحث عن اسم الشخص (أدمن، معلم...)"
+                                placeholder="ابحث عن اسم الشخص (أدمن، الأستاذ...)"
                                 className="w-full pr-10 pl-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
                                 value={search}
                                 onChange={(e) => setSearch(e.target.value)}

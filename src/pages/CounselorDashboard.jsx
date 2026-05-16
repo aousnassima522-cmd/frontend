@@ -171,7 +171,7 @@ const CounselorDashboard = () => {
   const loadAllTeacherNotes = async () => {
     setLoadingAllNotes(true);
     try {
-      // جلب جميع الملاحظات السلوكية التي سجلها المعلمون
+      // جلب جميع الملاحظات السلوكية التي سجلها الالأستاذون
       const res = await behavioralNoteAPI.getAll(); 
       setAllTeacherNotes(res.data.data || []);
     } catch (err) { console.error('loadAllTeacherNotes error:', err); }
@@ -375,14 +375,14 @@ const CounselorDashboard = () => {
     const [loadingConversations, setLoadingConversations] = useState(false);
     const [selectedConversation, setSelectedConversation] = useState(null);
     const [search, setSearch] = useState('');
-    const [staffList, setStaffList] = useState([]); // قائمة المعلمين والطاقم
+    const [staffList, setStaffList] = useState([]); // قائمة الالأستاذين والطاقم
     const [searchResults, setSearchResults] = useState([]);
     const [loadingStaff, setLoadingStaff] = useState(false);
     const [isSearching, setIsSearching] = useState(false);
 
     useEffect(() => {
       loadConversations();
-      loadStaff(); // جلب المعلمين عند التحميل
+      loadStaff(); // جلب الالأستاذين عند التحميل
     }, []);
 
     useEffect(() => {
@@ -413,7 +413,7 @@ const CounselorDashboard = () => {
     const loadStaff = async () => {
       setLoadingStaff(true);
       try {
-        // استدعاء بدون search لجلب المعلمين (حسب منطق الـ Backend الجديد)
+        // استدعاء بدون search لجلب الالأستاذين (حسب منطق الـ Backend الجديد)
         const res = await chatAPI.getUsersToChat('');
         setStaffList(res.data.data || []);
       } catch (err) { console.error(err); }
@@ -490,9 +490,9 @@ const CounselorDashboard = () => {
                     </div>
                   )}
 
-                  {/* الزملاء المتاحون (المعلمون والإدارة) */}
+                  {/* الزملاء المتاحون (الالأستاذون والإدارة) */}
                   <div className="space-y-1">
-                    <div className="text-[10px] font-bold text-gray-400 px-2 mb-2 uppercase tracking-widest">المعلمين والطاقم المدرسي</div>
+                    <div className="text-[10px] font-bold text-gray-400 px-2 mb-2 uppercase tracking-widest">الالأستاذين والطاقم المدرسي</div>
                     {loadingStaff ? (
                       <div className="p-4 text-center text-xs text-gray-500">جاري التحميل...</div>
                     ) : staffList.filter(u => !conversations.some(c => c.contact_id === u.id)).length > 0 ? (
@@ -655,7 +655,7 @@ const CounselorDashboard = () => {
                 <div className="space-y-4 text-amber-800 text-sm leading-relaxed">
                   <p>• <strong>إلى الأباء:</strong> استخدم قسم "النصائح" أو "الدردشة" لإرسال ملخص التقدم لولي التلميذ لتعزيز التعاون.</p>
                   <p>• <strong>إلى الإدارة:</strong> المعلومات هنا تظهر للأدمن في قسم التقارير، مما يساعدهم على رؤية إنجازاتك كمستشار.</p>
-                  <p>• <strong>إلى المعلم:</strong> شارك النتائج الإيجابية مع المعلم لتحسين تعامله مع التلميذ داخل الفصل.</p>
+                  <p>• <strong>إلى الالأستاذ:</strong> شارك النتائج الإيجابية مع الالأستاذ لتحسين تعامله مع التلميذ داخل الفصل.</p>
                 </div>
               </div>
             </div>
@@ -665,7 +665,7 @@ const CounselorDashboard = () => {
     );
   };
 
-  // هـ. مكون مراقبة ملاحظات المعلمين المحسن
+  // هـ. مكون مراقبة ملاحظات الالأستاذين المحسن
   const TeacherNotesMonitoring = () => {
     return (
       <div className="p-8 animate-fade-in">
@@ -673,9 +673,9 @@ const CounselorDashboard = () => {
           <div>
             <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
               <ClipboardDocumentListIcon className="w-8 h-8 text-blue-600" />
-              مراقبة ملاحظات المعلمين
+              مراقبة ملاحظات الالأستاذين
             </h2>
-            <p className="text-gray-500 mt-1 font-medium">متابعة بلاغات المعلمين حول سلوك التلاميذ للتدخل المبكر.</p>
+            <p className="text-gray-500 mt-1 font-medium">متابعة بلاغات الالأستاذين حول سلوك التلاميذ للتدخل المبكر.</p>
           </div>
           <button 
             onClick={loadAllTeacherNotes} 
@@ -689,13 +689,13 @@ const CounselorDashboard = () => {
         {loadingAllNotes ? (
           <div className="flex flex-col items-center py-20 text-gray-400">
             <div className="animate-spin text-4xl mb-4">⌛</div>
-            <span className="text-xs font-black uppercase tracking-widest">جاري جلب ملاحظات المعلمين...</span>
+            <span className="text-xs font-black uppercase tracking-widest">جاري جلب ملاحظات الالأستاذين...</span>
           </div>
         ) : allTeacherNotes.length === 0 ? (
           <div className="flex flex-col items-center py-24 bg-gray-50/50 rounded-[40px] border-2 border-dashed border-gray-100 text-center">
             <div className="text-6xl mb-6 opacity-20 grayscale">📝</div>
             <h3 className="text-xl font-bold text-gray-800">لا توجد ملاحظات مسجلة</h3>
-            <p className="text-gray-500 mt-2 max-w-sm">لم يقم المعلمون بتسجيل أي ملاحظات سلوكية مؤخراً.</p>
+            <p className="text-gray-500 mt-2 max-w-sm">لم يقم الالأستاذون بتسجيل أي ملاحظات سلوكية مؤخراً.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -722,7 +722,7 @@ const CounselorDashboard = () => {
 
                 <div className="flex items-center justify-between pt-6 border-t border-gray-50 mt-auto">
                   <div className="flex flex-col">
-                    <span className="text-[8px] font-black text-gray-400 uppercase mb-0.5">المعلم المبلّغ</span>
+                    <span className="text-[8px] font-black text-gray-400 uppercase mb-0.5">الالأستاذ المبلّغ</span>
                     <span className="text-xs font-bold text-gray-800">{n.teacher_name}</span>
                   </div>
                   
@@ -733,7 +733,7 @@ const CounselorDashboard = () => {
                           student_id: n.student_id,
                           student_name: n.student_name, // أضفنا الاسم هنا
                           title: `متابعة: ${n.behavior_type || 'سلوك تلميذ'}`,
-                          description: `بناءً على ملاحظة المعلم ${n.teacher_name}: ${n.description}`,
+                          description: `بناءً على ملاحظة الالأستاذ ${n.teacher_name}: ${n.description}`,
                           severity_level: n.severity
                         });
                         setShowAddCaseModal(true);
@@ -751,7 +751,7 @@ const CounselorDashboard = () => {
                         window.history.pushState({}, '', '/counselor/chat');
                       }}
                       className="p-2 bg-gray-50 text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded-xl transition-all shadow-sm"
-                      title="مراسلة المعلم للاستفسار"
+                      title="مراسلة الالأستاذ للاستفسار"
                     >
                       <ChatBubbleLeftRightIcon className="w-5 h-5" />
                     </button>
@@ -765,7 +765,7 @@ const CounselorDashboard = () => {
     );
   };
 
-  // و. مكون مراقبة تقارير المعلمين
+  // و. مكون مراقبة تقارير الالأستاذين
   const TeacherReportsMonitoring = () => {
     return (
       <div className="p-8 animate-fade-in">
@@ -773,9 +773,9 @@ const CounselorDashboard = () => {
           <div>
             <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
               <DocumentTextIcon className="w-8 h-8 text-indigo-600" />
-              مراقبة تقارير المعلمين
+              مراقبة تقارير الالأستاذين
             </h2>
-            <p className="text-gray-500 mt-1 font-medium">عرض التقارير التي يرسلها المعلمون لأولياء الأمور للوقوف على الحالة التعليمية والسلوكية.</p>
+            <p className="text-gray-500 mt-1 font-medium">عرض التقارير التي يرسلها الالأستاذون لأولياء الأمور للوقوف على الحالة التعليمية والسلوكية.</p>
           </div>
           <button 
             onClick={loadAllReports} 
@@ -795,7 +795,7 @@ const CounselorDashboard = () => {
           <div className="flex flex-col items-center py-24 bg-gray-50/50 rounded-[40px] border-2 border-dashed border-gray-100 text-center">
             <div className="text-6xl mb-6 opacity-20 grayscale">📄</div>
             <h3 className="text-xl font-bold text-gray-800">لا توجد تقارير مسجلة</h3>
-            <p className="text-gray-500 mt-2 max-w-sm">لم يقم المعلمون بإرسال أي تقارير مؤخراً.</p>
+            <p className="text-gray-500 mt-2 max-w-sm">لم يقم الالأستاذون بإرسال أي تقارير مؤخراً.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -841,7 +841,7 @@ const CounselorDashboard = () => {
                         student_id: r.student_id,
                         student_name: r.student_name, // أضفنا الاسم هنا
                         title: `متابعة تقرير: ${r.title}`,
-                        description: `بناءً على تقرير المعلم ${r.author_name}: ${r.content}`,
+                        description: `بناءً على تقرير الالأستاذ ${r.author_name}: ${r.content}`,
                         severity_level: 2
                       });
                       setShowAddCaseModal(true);
@@ -910,8 +910,8 @@ const CounselorDashboard = () => {
       <div className="flex gap-4 mb-10 overflow-x-auto pb-2 custom-scrollbar">
         {[
           { id: 'cases', label: 'الحالات النفسية', icon: DocumentTextIcon },
-          { id: 'teacher-notes', label: 'ملاحظات المعلمين', icon: ClipboardDocumentListIcon },
-          { id: 'teacher-reports', label: 'تقارير المعلمين', icon: DocumentIcon },
+          { id: 'teacher-notes', label: 'ملاحظات الالأستاذين', icon: ClipboardDocumentListIcon },
+          { id: 'teacher-reports', label: 'تقارير الالأستاذين', icon: DocumentIcon },
           { id: 'requests', label: 'طلبات الجلسات', icon: ClockIcon },
           { id: 'chat', label: 'الدردشة', icon: ChatBubbleLeftRightIcon },
           { id: 'advices', label: 'نصائح وتوصيات', icon: LightBulbIcon },
@@ -999,7 +999,7 @@ const CounselorDashboard = () => {
                         onClick={() => setActiveTab('teacher-notes')}
                         className="text-xs font-bold text-blue-600 hover:underline"
                      >
-                        💡 تحقق من ملاحظات المعلمين لفتح حالة
+                        💡 تحقق من ملاحظات الالأستاذين لفتح حالة
                      </button>
                    </div>
                  ) : (
@@ -1088,7 +1088,7 @@ const CounselorDashboard = () => {
                         to="/counselor/chat" 
                         className="px-4 py-2 bg-blue-50 text-blue-600 rounded-xl text-xs font-bold hover:bg-blue-600 hover:text-white transition-all border border-blue-100 flex items-center gap-2"
                       >
-                        <ChatBubbleLeftRightIcon className="w-4 h-4" /> تواصل مع المعلم
+                        <ChatBubbleLeftRightIcon className="w-4 h-4" /> تواصل مع الالأستاذ
                       </Link>
                       
                       {!selectedCase?.counselor_id ? (
@@ -1126,11 +1126,11 @@ const CounselorDashboard = () => {
                   <div className="mb-10">
                     <h4 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
                       <ClipboardDocumentListIcon className="w-6 h-6 text-blue-600" />
-                      ملاحظات المعلمين لهذا التلميذ
+                      ملاحظات الالأستاذين لهذا التلميذ
                     </h4>
                     {studentSpecificNotes.length === 0 ? (
                       <div className="p-6 text-center bg-gray-50 rounded-2xl border-2 border-dashed border-gray-200">
-                        <p className="text-gray-400 text-sm italic">لا توجد ملاحظات سلوكية مسجلة من المعلمين لهذا التلميذ.</p>
+                        <p className="text-gray-400 text-sm italic">لا توجد ملاحظات سلوكية مسجلة من الالأستاذين لهذا التلميذ.</p>
                       </div>
                     ) : (
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1271,9 +1271,9 @@ const CounselorDashboard = () => {
               <div>
                 <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
                   <ClipboardDocumentListIcon className="w-8 h-8 text-blue-600" />
-                  ملاحظات المعلمين (التدفق المباشر)
+                  ملاحظات الالأستاذين (التدفق المباشر)
                 </h2>
-                <p className="text-gray-500 mt-1 font-medium">آخر الملاحظات السلوكية التي تم تسجيلها من قبل المعلمين في المدرسة.</p>
+                <p className="text-gray-500 mt-1 font-medium">آخر الملاحظات السلوكية التي تم تسجيلها من قبل الالأستاذين في المدرسة.</p>
               </div>
               <button 
                 onClick={loadTeacherNotes} 
@@ -1293,7 +1293,7 @@ const CounselorDashboard = () => {
               <div className="flex flex-col items-center py-24 bg-gray-50/50 rounded-[40px] border-2 border-dashed border-gray-100">
                 <div className="text-6xl mb-6 opacity-20 grayscale">📝</div>
                 <h3 className="text-xl font-bold text-gray-800">لا توجد ملاحظات حالياً</h3>
-                <p className="text-gray-500 mt-2 max-w-sm text-center">بمجرد قيام المعلمين بتسجيل أي ملاحظة سلوكية حول التلاميذ، ستظهر هنا فوراً للمتابعة.</p>
+                <p className="text-gray-500 mt-2 max-w-sm text-center">بمجرد قيام الالأستاذين بتسجيل أي ملاحظة سلوكية حول التلاميذ، ستظهر هنا فوراً للمتابعة.</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -1327,14 +1327,14 @@ const CounselorDashboard = () => {
 
                     <div className="flex items-center justify-between pt-4 border-t border-gray-50">
                       <div className="flex flex-col">
-                        <span className="text-[9px] font-bold text-gray-400 uppercase">بواسطة المعلم</span>
+                        <span className="text-[9px] font-bold text-gray-400 uppercase">بواسطة الالأستاذ</span>
                         <span className="text-xs font-bold text-gray-700">{note.teacher_name}</span>
                       </div>
                       <div className="flex gap-2">
                         <Link 
                           to="/counselor/chat" 
                           className="p-2 bg-blue-50 text-blue-600 rounded-xl hover:bg-blue-600 hover:text-white transition-all shadow-sm"
-                          title="تواصل مع المعلم"
+                          title="تواصل مع الالأستاذ"
                         >
                           <ChatBubbleLeftRightIcon className="w-5 h-5" />
                         </Link>
@@ -1359,7 +1359,7 @@ const CounselorDashboard = () => {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
               <div>
                 <h2 className="text-2xl font-bold text-gray-900">📅 طلبات الجلسات الإرشادية</h2>
-                <p className="text-gray-500 mt-1">طلبات جديدة من المعلمين وأولياء الأمور تحتاج إلى ردك.</p>
+                <p className="text-gray-500 mt-1">طلبات جديدة من الالأستاذين وأولياء الأمور تحتاج إلى ردك.</p>
               </div>
               <button onClick={loadSessionRequests} className="px-6 py-2.5 bg-gray-100 text-gray-700 rounded-xl font-bold hover:bg-gray-200 transition-colors">
                 تحديث القائمة

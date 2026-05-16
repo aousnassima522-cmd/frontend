@@ -23,7 +23,7 @@ const DashboardStats = ({ stats, financialStats }) => (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {[
         { label: 'أولياء الأمور', value: stats.parent_count, icon: '👨‍👩‍👧‍👦', color: 'blue' },
-        { label: 'المعلمون', value: stats.teacher_count, icon: '👨‍🏫', color: 'indigo' },
+        { label: 'الالأستاذون', value: stats.teacher_count, icon: '👨‍🏫', color: 'indigo' },
         { label: 'المستشارون', value: stats.counselor_count, icon: '🩺', color: 'purple' },
         { label: 'التلاميذ', value: stats.student_count, icon: '🎓', color: 'cyan' },
         { label: 'إجمالي الدخل', value: `${financialStats?.total_revenue || 0} د.ج`, icon: '💰', color: 'green' },
@@ -217,7 +217,7 @@ const UserManagement = ({ users, loading, newUser, setNewUser, createUser, creat
             onChange={(e) => editingUser ? setEditingUser({ ...editingUser, role: e.target.value }) : setNewUser({ ...newUser, role: e.target.value })}
           >
             <option value="parent">ولي التلميذ</option>
-            <option value="teacher">معلم</option>
+            <option value="teacher">الأستاذ</option>
             <option value="counselor">مستشار التوجيه والإرشاد المدرسي والمهني</option>
             <option value="admin">إدارة</option>
           </select>
@@ -329,7 +329,7 @@ const StudentManagement = ({
         </div>
 
         <div className="bg-white border rounded-xl p-6">
-          <h3 className="text-lg font-medium text-gray-800 mb-4">👨‍🏫 ربط معلم بـ Group</h3>
+          <h3 className="text-lg font-medium text-gray-800 mb-4">👨‍🏫 ربط الأستاذ بـ Group</h3>
           <form onSubmit={handleAssignTeacherToGroup} className="space-y-3">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">المجموعة</label>
@@ -339,9 +339,9 @@ const StudentManagement = ({
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">المعلم</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">الالأستاذ</label>
               <select required className="w-full px-4 py-2 border rounded-lg bg-white" value={groupTeacher.teacher_id} onChange={(e) => setGroupTeacher({ ...groupTeacher, teacher_id: e.target.value })}>
-                <option value="">-- اختر المعلم --</option>
+                <option value="">-- اختر الالأستاذ --</option>
                 {(teachers || []).map((t) => (<option key={t.id} value={t.id}>{t.full_name} ({t.email})</option>))}
               </select>
             </div>
@@ -393,7 +393,7 @@ const StudentManagement = ({
           />
           
           <div className="sm:col-span-2">
-            <label className="block text-sm font-medium text-gray-700 mb-1">ربط بـ Group (مهم لظهور التلميذ عند المعلم)</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">ربط بـ Group (مهم لظهور التلميذ عند الالأستاذ)</label>
             <select 
               className="w-full px-4 py-2 border rounded-lg bg-white" 
               value={editingStudent ? editingStudent.group_id : newStudent.group_id} 
@@ -686,7 +686,7 @@ const NotificationSender = ({ notification, setNotification, sendNotification })
         <select value={notification.target_role} onChange={(e) => setNotification({ ...notification, target_role: e.target.value })} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 bg-white">
           <option value="">الكل</option>
           <option value="parent">أولياء التلاميذ</option>
-          <option value="teacher">المعلمون</option>
+          <option value="teacher">الالأستاذون</option>
           <option value="counselor">المستشارون</option>
         </select>
       </div>
@@ -992,9 +992,9 @@ const AdminDashboard = () => {
     e.preventDefault();
     try {
       await adminAPI.assignGroupTeacher(groupTeacher.group_id, { teacher_id: groupTeacher.teacher_id, subject: groupTeacher.subject });
-      alert('✅ تم ربط المعلم بالمجموعة');
+      alert('✅ تم ربط الالأستاذ بالمجموعة');
       setGroupTeacher({ group_id: '', teacher_id: '', subject: '' });
-    } catch (err) { console.error(err?.response?.data || err); alert('❌ فشل ربط المعلم'); }
+    } catch (err) { console.error(err?.response?.data || err); alert('❌ فشل ربط الالأستاذ'); }
   };
 
   // --- Helper Functions for Styling ---

@@ -327,7 +327,7 @@ const FollowUpStats = ({ selectedStudent, notes, studentDetails }) => (
     </div>
 );
 
-// هـ. مكون الدردشة المحسن للمعلم
+// هـ. مكون الدردشة المحسن للالأستاذ
 const TeacherChatView = ({ selectedConversation: initialConversation }) => {
     const [conversations, setConversations] = useState([]);
     const [loadingConversations, setLoadingConversations] = useState(false);
@@ -506,7 +506,7 @@ const TeacherChatView = ({ selectedConversation: initialConversation }) => {
 };
 
 
-// و. مكون نصائح المستشارين (للمعلمين)
+// و. مكون نصائح المستشارين (للالأستاذين)
 const CounselorAdvices = ({ advices, loading }) => (
     <div className="animate-fade-in">
         <div className="mb-8">
@@ -668,10 +668,10 @@ const TeacherDashboard = () => {
      if (!window.confirm(`هل تريد إرسال طلب تدخل للمستشار بناءً على هذه الملاحظة؟\n\nالملاحظة: ${note.description}`)) return;
      
      try {
-       // إنشاء طلب جلسة تلقائي من المعلم للمستشار
+       // إنشاء طلب جلسة تلقائي من الالأستاذ للمستشار
        await sessionRequestAPI.create({
          student_id: selectedStudent.id,
-         reason: `تدخل عاجل بناءً على ملاحظة معلم: ${note.description}`,
+         reason: `تدخل عاجل بناءً على ملاحظة الأستاذ: ${note.description}`,
          preferred_date: new Date().toISOString()
        });
        
@@ -817,7 +817,7 @@ const TeacherDashboard = () => {
             <div>
                 <h1 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
                     <AcademicCapIcon className="w-8 h-8 text-blue-600" />
-                    لوحة المعلم
+                    لوحة الالأستاذ
                 </h1>
                 <p className="text-sm text-gray-500 mt-1">إدارة الطلاب، الملاحظات، والتقارير.</p>
             </div>
