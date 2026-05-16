@@ -530,7 +530,7 @@ const CounselorAdvices = ({ advices, loading }) => (
                         </div>
                         <p className="text-sm text-gray-700 leading-relaxed mb-6 font-medium">{adv.content}</p>
                         <div className="pt-4 border-t border-amber-100/50 flex justify-between items-center text-[10px] font-bold text-amber-600/60">
-                            <span>✍️ المستشار التربوي</span>
+                            <span>✍️ مستشار التوجيه والإرشاد المدرسي والمهني</span>
                             <span>{new Date(adv.created_at).toLocaleDateString('ar-EG')}</span>
                         </div>
                     </div>

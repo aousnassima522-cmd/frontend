@@ -57,7 +57,7 @@ const StatusView = ({ selectedChild, cases, notes, loading, onContactTeacher }) 
                                     <div className="pt-4 border-t border-gray-50 flex justify-between items-center text-[10px] font-bold text-gray-400">
                                         <div className="flex items-center gap-2">
                                             <span className="w-6 h-6 bg-blue-50 rounded-lg flex items-center justify-center">👨‍⚕️</span>
-                                            <span>{c.counselor_name || 'المستشار المدرسي'}</span>
+                                            <span>{c.counselor_name || 'مستشار التوجيه والإرشاد المدرسي والمهني'}</span>
                                         </div>
                                         <div className="flex items-center gap-2">
                                             <span className="w-6 h-6 bg-gray-50 rounded-lg flex items-center justify-center">📅</span>

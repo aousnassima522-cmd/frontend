@@ -218,7 +218,7 @@ const UserManagement = ({ users, loading, newUser, setNewUser, createUser, creat
           >
             <option value="parent">ولي التلميذ</option>
             <option value="teacher">معلم</option>
-            <option value="counselor">مستشار</option>
+            <option value="counselor">مستشار التوجيه والإرشاد المدرسي والمهني</option>
             <option value="admin">إدارة</option>
           </select>
           {editingUser && (
@@ -685,7 +685,7 @@ const NotificationSender = ({ notification, setNotification, sendNotification })
         <label className="block text-sm font-medium text-gray-700 mb-1">الفئة المستهدفة</label>
         <select value={notification.target_role} onChange={(e) => setNotification({ ...notification, target_role: e.target.value })} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 bg-white">
           <option value="">الكل</option>
-          <option value="parent">أولياء الأمور</option>
+          <option value="parent">أولياء التلاميذ</option>
           <option value="teacher">المعلمون</option>
           <option value="counselor">المستشارون</option>
         </select>

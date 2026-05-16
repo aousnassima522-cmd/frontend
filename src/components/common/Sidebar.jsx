@@ -14,7 +14,7 @@ import {
 import { ShieldCheckIcon } from '@heroicons/react/24/solid';
 const roleNames = {
   teacher: 'الأستاذ',
-  counselor: 'مستشار التوجيه والارشاد',
+  counselor: 'مستشار التوجيه والإرشاد المدرسي والمهني',
   admin: 'الإدارة',
     parent: 'أولياء التلاميذ',
 //akteb wach bgh wach nakteb hna ta
