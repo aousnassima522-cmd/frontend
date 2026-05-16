@@ -13,10 +13,11 @@ import {
 } from '@heroicons/react/24/outline';
 import { ShieldCheckIcon } from '@heroicons/react/24/solid';
 const roleNames = {
-  parent: 'ولي الأمر',
-  teacher: 'المعلم',
-  counselor: 'المستشار',
+  teacher: 'الأستاذ',
+  counselor: 'مستشار التوجيه والارشاد',
   admin: 'الإدارة',
+    parent: 'أولياء التلاميذ',
+//akteb wach bgh wach nakteb hna ta
 };
 
 const menuItems = {
