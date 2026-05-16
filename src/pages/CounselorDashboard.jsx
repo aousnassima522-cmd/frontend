@@ -775,7 +775,7 @@ const CounselorDashboard = () => {
               <DocumentTextIcon className="w-8 h-8 text-indigo-600" />
               مراقبة تقارير الالأستاذين
             </h2>
-            <p className="text-gray-500 mt-1 font-medium">عرض التقارير التي يرسلها الالأستاذون لأولياء الأمور للوقوف على الحالة التعليمية والسلوكية.</p>
+            <p className="text-gray-500 mt-1 font-medium">عرض التقارير التي يرسلها الالأستاذون لأولياءالتلاميذ للوقوف على الحالة التعليمية والسلوكية.</p>
           </div>
           <button 
             onClick={loadAllReports} 
@@ -1359,7 +1359,7 @@ const CounselorDashboard = () => {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
               <div>
                 <h2 className="text-2xl font-bold text-gray-900">📅 طلبات الجلسات الإرشادية</h2>
-                <p className="text-gray-500 mt-1">طلبات جديدة من الالأستاذين وأولياء الأمور تحتاج إلى ردك.</p>
+                <p className="text-gray-500 mt-1">طلبات جديدة من الالأستاذين وأولياءالتلاميذ تحتاج إلى ردك.</p>
               </div>
               <button onClick={loadSessionRequests} className="px-6 py-2.5 bg-gray-100 text-gray-700 rounded-xl font-bold hover:bg-gray-200 transition-colors">
                 تحديث القائمة
@@ -1459,7 +1459,7 @@ const CounselorDashboard = () => {
               <div className="mb-10 text-center">
                 <div className="w-20 h-20 bg-amber-50 rounded-3xl flex items-center justify-center text-4xl mx-auto mb-6">💡</div>
                 <h2 className="text-3xl font-bold text-gray-900">إرسال نصيحة تربوية</h2>
-                <p className="text-gray-500 mt-2">شارك خبرتك مع أولياء الأمور للمساعدة في تحسين بيئة الطالب.</p>
+                <p className="text-gray-500 mt-2">شارك خبرتك مع أولياءالتلاميذ للمساعدة في تحسين بيئة الطالب.</p>
               </div>
 
               <form onSubmit={sendAdvice} className="space-y-6 bg-gray-50/50 p-8 rounded-[40px] border border-gray-100 shadow-inner">
@@ -1491,7 +1491,7 @@ const CounselorDashboard = () => {
                   <div>
                     <label className="block text-sm font-bold text-gray-700 mb-2 mr-2">موجه إلى</label>
                     <div className="px-5 py-4 bg-gray-100 border border-transparent rounded-2xl text-sm font-bold text-gray-500 flex items-center gap-2">
-                      <span>👥</span> أولياء الأمور
+                      <span>👥</span> أولياءالتلاميذ
                     </div>
                   </div>
                 </div>

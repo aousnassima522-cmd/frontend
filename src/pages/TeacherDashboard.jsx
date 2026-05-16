@@ -305,7 +305,7 @@ const FollowUpStats = ({ selectedStudent, notes, studentDetails }) => (
 
         <div className="bg-gradient-to-br from-purple-50 to-white border border-purple-100 rounded-xl p-6 shadow-sm">
             <div className="flex items-center justify-between mb-4">
-                <div className="text-sm text-purple-600 font-bold">أولياء الأمور</div>
+                <div className="text-sm text-purple-600 font-bold">أولياءالتلاميذ</div>
                 <UserGroupIcon className="w-6 h-6 text-purple-400" />
             </div>
             <div className="text-3xl font-bold text-gray-800">

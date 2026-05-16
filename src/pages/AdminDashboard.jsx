@@ -22,7 +22,7 @@ const DashboardStats = ({ stats, financialStats }) => (
     </h2>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {[
-        { label: 'أولياء الأمور', value: stats.parent_count, icon: '👨‍👩‍👧‍👦', color: 'blue' },
+        { label: 'أولياءالتلاميذ', value: stats.parent_count, icon: '👨‍👩‍👧‍👦', color: 'blue' },
         { label: 'الالأستاذون', value: stats.teacher_count, icon: '👨‍🏫', color: 'indigo' },
         { label: 'المستشارون', value: stats.counselor_count, icon: '🩺', color: 'purple' },
         { label: 'التلاميذ', value: stats.student_count, icon: '🎓', color: 'cyan' },
@@ -621,7 +621,7 @@ const UniversalChatView = () => {
               </div>
             ) : (
               <div className="space-y-2">
-                <div className="text-[10px] font-bold text-gray-400 px-2 mb-2 uppercase tracking-widest">الموظفين وأولياء الأمور</div>
+                <div className="text-[10px] font-bold text-gray-400 px-2 mb-2 uppercase tracking-widest">الموظفين وأولياءالتلاميذ</div>
                 {loadingContacts ? (
                   <div className="flex justify-center py-10"><div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600"></div></div>
                 ) : staffList.length > 0 ? staffList.map((u) => (
