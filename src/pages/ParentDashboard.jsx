@@ -77,11 +77,11 @@ const StatusView = ({ selectedChild, cases, notes, loading, onContactTeacher }) 
                 )}
             </div>
 
-            {/* ملاحظات الالأستاذين السلوكية */}
+            {/* ملاحظات الأستاذين السلوكية */}
             <div className="pt-8 border-t border-gray-100">
                 <h3 className="text-2xl font-black text-gray-900 mb-8 flex items-center gap-3">
                     <ClipboardDocumentListIcon className="w-8 h-8 text-blue-600" />
-                    ملاحظات الالأستاذين اليومية
+                    ملاحظات الأستاذين اليومية
                 </h3>
                 
                 {loading ? (
@@ -110,13 +110,13 @@ const StatusView = ({ selectedChild, cases, notes, loading, onContactTeacher }) 
 
                                 <div className="flex items-center justify-between pt-4 border-t border-gray-50">
                                     <div className="flex flex-col">
-                                        <span className="text-[9px] font-black text-gray-400 uppercase mb-1">الالأستاذ</span>
+                                        <span className="text-[9px] font-black text-gray-400 uppercase mb-1">الأستاذ</span>
                                         <span className="text-xs font-bold text-blue-600">{n.teacher_name}</span>
                                     </div>
                                     <button 
                                         onClick={() => onContactTeacher(n.teacher_id, n.teacher_name)}
                                         className="p-2 bg-blue-50 text-blue-600 rounded-xl hover:bg-blue-600 hover:text-white transition-all shadow-sm"
-                                        title="تواصل مع الالأستاذ"
+                                        title="تواصل مع الأستاذ"
                                     >
                                         <ChatBubbleLeftRightIcon className="w-5 h-5" />
                                     </button>
@@ -194,7 +194,7 @@ const ReportsView = ({ reports, loading, onMarkAsRead }) => {
                                 <div className="bg-amber-50 border border-amber-100 p-6 rounded-2xl text-sm text-amber-900 flex gap-4">
                                     <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-xl shrink-0 shadow-sm">💡</div>
                                     <div>
-                                        <strong className="block text-amber-900 mb-1 font-black">توصيات الالأستاذ:</strong>
+                                        <strong className="block text-amber-900 mb-1 font-black">توصيات الأستاذ:</strong>
                                         <p className="font-medium opacity-90">{r.recommendations}</p>
                                     </div>
                                 </div>
@@ -204,7 +204,7 @@ const ReportsView = ({ reports, loading, onMarkAsRead }) => {
                         <div className="text-center py-24 bg-gray-50 rounded-[40px] border-2 border-dashed border-gray-200">
                             <DocumentTextIcon className="w-20 h-20 mx-auto text-gray-200 mb-6" />
                             <h4 className="text-lg font-bold text-gray-800">لا توجد تقارير حالياً</h4>
-                            <p className="text-gray-400 text-sm mt-2">بمجرد إرسال الالأستاذين لتقارير جديدة حول ابنك، ستظهر هنا.</p>
+                            <p className="text-gray-400 text-sm mt-2">بمجرد إرسال الأستاذين لتقارير جديدة حول ابنك، ستظهر هنا.</p>
                         </div>
                     )}
                 </div>

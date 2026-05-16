@@ -666,9 +666,9 @@ const TeacherDashboard = () => {
 
   const handleRequestIntervention = async (note) => {
      if (!window.confirm(`هل تريد إرسال طلب تدخل للمستشار بناءً على هذه الملاحظة؟\n\nالملاحظة: ${note.description}`)) return;
-     
+    
      try {
-       // إنشاء طلب جلسة تلقائي من الالأستاذ للمستشار
+       // إنشاء طلب جلسة تلقائي من الأستاذ للمستشار
        await sessionRequestAPI.create({
          student_id: selectedStudent.id,
          reason: `تدخل عاجل بناءً على ملاحظة الأستاذ: ${note.description}`,
@@ -817,7 +817,7 @@ const TeacherDashboard = () => {
             <div>
                 <h1 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
                     <AcademicCapIcon className="w-8 h-8 text-blue-600" />
-                    لوحة الالأستاذ
+                    لوحة الأستاذ
                 </h1>
                 <p className="text-sm text-gray-500 mt-1">إدارة الطلاب، الملاحظات، والتقارير.</p>
             </div>

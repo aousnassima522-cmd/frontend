@@ -339,9 +339,9 @@ const StudentManagement = ({
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">الالأستاذ</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">الأستاذ</label>
               <select required className="w-full px-4 py-2 border rounded-lg bg-white" value={groupTeacher.teacher_id} onChange={(e) => setGroupTeacher({ ...groupTeacher, teacher_id: e.target.value })}>
-                <option value="">-- اختر الالأستاذ --</option>
+                <option value="">-- اختر الأستاذ --</option>
                 {(teachers || []).map((t) => (<option key={t.id} value={t.id}>{t.full_name} ({t.email})</option>))}
               </select>
             </div>
@@ -393,7 +393,7 @@ const StudentManagement = ({
           />
           
           <div className="sm:col-span-2">
-            <label className="block text-sm font-medium text-gray-700 mb-1">ربط بـ Group (مهم لظهور التلميذ عند الالأستاذ)</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">ربط بـ Group (مهم لظهور التلميذ عند الأستاذ)</label>
             <select 
               className="w-full px-4 py-2 border rounded-lg bg-white" 
               value={editingStudent ? editingStudent.group_id : newStudent.group_id} 
@@ -992,9 +992,9 @@ const AdminDashboard = () => {
     e.preventDefault();
     try {
       await adminAPI.assignGroupTeacher(groupTeacher.group_id, { teacher_id: groupTeacher.teacher_id, subject: groupTeacher.subject });
-      alert('✅ تم ربط الالأستاذ بالمجموعة');
+      alert('✅ تم ربط الأستاذ بالمجموعة');
       setGroupTeacher({ group_id: '', teacher_id: '', subject: '' });
-    } catch (err) { console.error(err?.response?.data || err); alert('❌ فشل ربط الالأستاذ'); }
+    } catch (err) { console.error(err?.response?.data || err); alert('❌ فشل ربط الأستاذ'); }
   };
 
   // --- Helper Functions for Styling ---
