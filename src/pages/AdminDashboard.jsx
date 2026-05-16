@@ -216,7 +216,7 @@ const UserManagement = ({ users, loading, newUser, setNewUser, createUser, creat
             value={editingUser ? editingUser.role : newUser.role} 
             onChange={(e) => editingUser ? setEditingUser({ ...editingUser, role: e.target.value }) : setNewUser({ ...newUser, role: e.target.value })}
           >
-            <option value="parent">ولي أمر</option>
+            <option value="parent">ولي التلميذ</option>
             <option value="teacher">معلم</option>
             <option value="counselor">مستشار</option>
             <option value="admin">إدارة</option>
@@ -357,7 +357,7 @@ const StudentManagement = ({
       {/* نموذج إضافة أو تعديل طالب */}
       <div className="mb-8 bg-blue-50 p-6 rounded-xl border border-blue-100">
         <h3 className="text-lg font-medium text-blue-800 mb-4">
-          {editingStudent ? `تعديل بيانات الطالب: ${editingStudent.full_name}` : 'إضافة طالب وربطه بولي أمر'}
+          {editingStudent ? `تعديل بيانات الطالب: ${editingStudent.full_name}` : 'إضافة طالب وربطه بولي التلميذ'}
         </h3>
         <form onSubmit={editingStudent ? handleUpdate : handleCreateStudent} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <input 
