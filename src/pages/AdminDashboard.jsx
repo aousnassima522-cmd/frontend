@@ -23,7 +23,7 @@ const DashboardStats = ({ stats, financialStats }) => (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {[
         { label: 'أولياءالتلاميذ', value: stats.parent_count, icon: '👨‍👩‍👧‍👦', color: 'blue' },
-        { label: 'الالأستاذون', value: stats.teacher_count, icon: '👨‍🏫', color: 'indigo' },
+        { label: 'الأساتذة', value: stats.teacher_count, icon: '👨‍🏫', color: 'indigo' },
         { label: 'المستشارون', value: stats.counselor_count, icon: '🩺', color: 'purple' },
         { label: 'التلاميذ', value: stats.student_count, icon: '🎓', color: 'cyan' },
         { label: 'إجمالي الدخل', value: `${financialStats?.total_revenue || 0} د.ج`, icon: '💰', color: 'green' },
@@ -686,7 +686,7 @@ const NotificationSender = ({ notification, setNotification, sendNotification })
         <select value={notification.target_role} onChange={(e) => setNotification({ ...notification, target_role: e.target.value })} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 bg-white">
           <option value="">الكل</option>
           <option value="parent">أولياء التلاميذ</option>
-          <option value="teacher">الالأستاذون</option>
+          <option value="teacher">الأساتذة</option>
           <option value="counselor">المستشارون</option>
         </select>
       </div>
