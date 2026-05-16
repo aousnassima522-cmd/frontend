@@ -85,7 +85,7 @@ const Login = () => {
         <div className="mt-8 pt-6 border-t border-gray-200">
           <h3 className="text-sm font-medium text-gray-700 mb-3">حسابات تجريبية:</h3>
           <div className="text-sm text-gray-500 space-y-1">
-            <p>ولي الأمر: parent@school.com / 123456789</p>
+            <p>ولي التلميذ: parent@school.com / 123456789</p>
             <p>المعلم: teacher@school.com / 123456789</p>
             <p>المستشار: counselor@school.com / 123456789</p>
             <p>الإدارة: admin@school.com / 123456789</p>

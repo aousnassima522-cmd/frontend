@@ -99,7 +99,7 @@ const FinancialManagement = ({ payments, stats, loading, onVerify }) => {
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
-                <th className="px-6 py-4 text-right text-xs font-bold text-gray-500 uppercase">ولي الأمر</th>
+                <th className="px-6 py-4 text-right text-xs font-bold text-gray-500 uppercase">ولي التلميذ</th>
                 <th className="px-6 py-4 text-right text-xs font-bold text-gray-500 uppercase">الطالب</th>
                 <th className="px-6 py-4 text-right text-xs font-bold text-gray-500 uppercase">المبلغ</th>
                 <th className="px-6 py-4 text-right text-xs font-bold text-gray-500 uppercase">الطريقة</th>
@@ -405,13 +405,13 @@ const StudentManagement = ({
           </div>
           
           <div className="sm:col-span-2">
-            <label className="block text-sm font-medium text-gray-700 mb-1">ربط بولي الأمر (اختياري)</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">ربط بولي التلميذ (اختياري)</label>
             <select 
               className="w-full px-4 py-2 border rounded-lg bg-white" 
               value={editingStudent ? editingStudent.parent_id : newStudent.parent_id} 
               onChange={(e) => editingStudent ? setEditingStudent({ ...editingStudent, parent_id: e.target.value }) : setNewStudent({ ...newStudent, parent_id: e.target.value })}
             >
-              <option value="">-- اختر ولي الأمر لربط الحساب --</option>
+              <option value="">-- اختر ولي التلميذ لربط الحساب --</option>
               {parentsList.map(parent => (<option key={parent.id} value={parent.id}>{parent.full_name} ({parent.email})</option>))}
             </select>
           </div>
