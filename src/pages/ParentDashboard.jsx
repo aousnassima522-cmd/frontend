@@ -77,11 +77,11 @@ const StatusView = ({ selectedChild, cases, notes, loading, onContactTeacher }) 
                 )}
             </div>
 
-            {/* ملاحظات الأستاذين السلوكية */}
+            {/* ملاحظات الأساتذة السلوكية */}
             <div className="pt-8 border-t border-gray-100">
                 <h3 className="text-2xl font-black text-gray-900 mb-8 flex items-center gap-3">
                     <ClipboardDocumentListIcon className="w-8 h-8 text-blue-600" />
-                    ملاحظات الأستاذين اليومية
+                    ملاحظات الأساتذة اليومية
                 </h3>
                 
                 {loading ? (
@@ -204,7 +204,7 @@ const ReportsView = ({ reports, loading, onMarkAsRead }) => {
                         <div className="text-center py-24 bg-gray-50 rounded-[40px] border-2 border-dashed border-gray-200">
                             <DocumentTextIcon className="w-20 h-20 mx-auto text-gray-200 mb-6" />
                             <h4 className="text-lg font-bold text-gray-800">لا توجد تقارير حالياً</h4>
-                            <p className="text-gray-400 text-sm mt-2">بمجرد إرسال الأستاذين لتقارير جديدة حول ابنك، ستظهر هنا.</p>
+                            <p className="text-gray-400 text-sm mt-2">بمجرد إرسال الأساتذة لتقارير جديدة حول ابنك، ستظهر هنا.</p>
                         </div>
                     )}
                 </div>

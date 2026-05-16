@@ -506,7 +506,7 @@ const TeacherChatView = ({ selectedConversation: initialConversation }) => {
 };
 
 
-// و. مكون نصائح المستشارين (للالأستاذين)
+// و. مكون نصائح المستشارين (للالأساتذة)
 const CounselorAdvices = ({ advices, loading }) => (
     <div className="animate-fade-in">
         <div className="mb-8">
