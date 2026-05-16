@@ -76,8 +76,8 @@ const Sidebar = () => {
       <div className={`p-6 flex items-center gap-3 border-b bg-gradient-to-br from-blue-600 to-indigo-700 text-white
         ${collapsed ? 'justify-center' : ''}`}>
 
-<div className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center hover:bg-white/30 transition-all duration-300">
-  <img src={`${import.meta.env.BASE_URL}fav.png`} alt="icon" className="w-6 h-6" />
+<div className="w-16 h-16 bg-white/90 backdrop-blur-md rounded-3xl flex items-center justify-center hover:bg-white transition-all duration-300 shadow-lg shadow-blue-500/20">
+  <img src={`${import.meta.env.BASE_URL}fav.png`} alt="icon" className="w-12 h-12" />
 </div>
         {!collapsed && (
           <div className="flex flex-col">
