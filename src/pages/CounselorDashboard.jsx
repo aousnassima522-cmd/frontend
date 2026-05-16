@@ -171,7 +171,7 @@ const CounselorDashboard = () => {
   const loadAllTeacherNotes = async () => {
     setLoadingAllNotes(true);
     try {
-      // جلب جميع الملاحظات السلوكية التي سجلها الالأستاذون
+      // جلب جميع الملاحظات السلوكية التي سجلها الأساتذة
       const res = await behavioralNoteAPI.getAll(); 
       setAllTeacherNotes(res.data.data || []);
     } catch (err) { console.error('loadAllTeacherNotes error:', err); }
@@ -490,7 +490,7 @@ const CounselorDashboard = () => {
                     </div>
                   )}
 
-                  {/* الزملاء المتاحون (الالأستاذون والإدارة) */}
+                  {/* الزملاء المتاحون (الأساتذة والإدارة) */}
                   <div className="space-y-1">
                     <div className="text-[10px] font-bold text-gray-400 px-2 mb-2 uppercase tracking-widest">الالأستاذين والطاقم المدرسي</div>
                     {loadingStaff ? (
@@ -695,7 +695,7 @@ const CounselorDashboard = () => {
           <div className="flex flex-col items-center py-24 bg-gray-50/50 rounded-[40px] border-2 border-dashed border-gray-100 text-center">
             <div className="text-6xl mb-6 opacity-20 grayscale">📝</div>
             <h3 className="text-xl font-bold text-gray-800">لا توجد ملاحظات مسجلة</h3>
-            <p className="text-gray-500 mt-2 max-w-sm">لم يقم الالأستاذون بتسجيل أي ملاحظات سلوكية مؤخراً.</p>
+            <p className="text-gray-500 mt-2 max-w-sm">لم يقم الأساتذة بتسجيل أي ملاحظات سلوكية مؤخراً.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -775,7 +775,7 @@ const CounselorDashboard = () => {
               <DocumentTextIcon className="w-8 h-8 text-indigo-600" />
               مراقبة تقارير الالأستاذين
             </h2>
-            <p className="text-gray-500 mt-1 font-medium">عرض التقارير التي يرسلها الالأستاذون لأولياءالتلاميذ للوقوف على الحالة التعليمية والسلوكية.</p>
+            <p className="text-gray-500 mt-1 font-medium">عرض التقارير التي يرسلها الأساتذة لأولياءالتلاميذ للوقوف على الحالة التعليمية والسلوكية.</p>
           </div>
           <button 
             onClick={loadAllReports} 
@@ -795,7 +795,7 @@ const CounselorDashboard = () => {
           <div className="flex flex-col items-center py-24 bg-gray-50/50 rounded-[40px] border-2 border-dashed border-gray-100 text-center">
             <div className="text-6xl mb-6 opacity-20 grayscale">📄</div>
             <h3 className="text-xl font-bold text-gray-800">لا توجد تقارير مسجلة</h3>
-            <p className="text-gray-500 mt-2 max-w-sm">لم يقم الالأستاذون بإرسال أي تقارير مؤخراً.</p>
+            <p className="text-gray-500 mt-2 max-w-sm">لم يقم الأساتذة بإرسال أي تقارير مؤخراً.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
